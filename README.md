@@ -1,1 +1,1 @@
-# VInRoS_ABB_RS
+# Versatile Intelligent Robotic Workstation (VInRoS): ABB RobotStudio
