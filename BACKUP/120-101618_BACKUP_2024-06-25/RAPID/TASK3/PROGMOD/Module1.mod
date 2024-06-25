@@ -24,7 +24,6 @@ MODULE Module1
     ! File Name: T_ROB_PLC_PROFINET_Q/Module1.mod
     ! ## =========================================================================== ## 
     
-    
     ! Description: !
     !   Joint Position Data (Q0 - Q5): sign (+-) !
     RECORD robot_data_joint_sign_str

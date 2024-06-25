@@ -24,7 +24,6 @@ MODULE Module1
     ! File Name: T_PLC_ROB_PROFINET/Module1.mod
     ! ## =========================================================================== ## 
     
-    
     ! Description: !
     !   The main command structure for robot control !
     RECORD robot_command_main_str
@@ -373,7 +372,7 @@ MODULE Module1
         ! [1] return [zonedata]: Defines whether the movement is to terminate as a stop point (fine point) or 
         !                        as a fly-by point.                                                               !
         !                           Stop points : Use zonedata named fine.                                        !
-        !                           Other       : Fly-by points(z0 {0.3 mm / 0.03°} .. z200 {200 mm / 30°})       !
+        !                           Other       : Fly-by points(z0 {0.3 mm / 0.03ï¿½} .. z200 {200 mm / 30ï¿½})       !
 
         TEST value
             CASE 0:
