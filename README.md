@@ -1,5 +1,10 @@
 # Versatile Intelligent Robotic Workstation (VInRoS): ABB RobotStudio
 
+<p align="center">
+  <img src=https://github.com/rparak/VInRoS_ABB_RS/blob/main/images/ABB_IRB_120.png width="275" height="375">
+  <img src=https://github.com/rparak/VInRoS_ABB_RS/blob/main/images/ABB_IRB_14000.png width="275" height="375">
+</p>
+
 ## Requirements:
 
 **Software:**
