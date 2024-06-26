@@ -1,5 +1,22 @@
 # Versatile Intelligent Robotic Workstation (VInRoS): ABB RobotStudio
 
+## Requirements:
+
+**Software:**
+```bash
+ABB RobotStudio
+```
+
+**Supported on the following operating systems:**
+```bash
+Windows
+```
+
+| Software/Package      | Link                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------- |
+| ABB RobotStudio       | https://new.abb.com/products/robotics/robotstudio/downloads                           |
+
+
 ## Project Description
 
 In progress ...
