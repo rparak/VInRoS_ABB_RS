@@ -111,14 +111,75 @@ MODULE Module1
     !       TrustLeve   : N/A    !
     !       Motion Task : YES    !
     PROC Main()
-        MoveAbsJ [[0,-130,30,0,40,0], [-135,9E9,9E9,9E9,9E9,9E9]] \NoEOffs, v100, fine, tool0;
+        TEST R_ST_MAIN_ID_PROFINET_OUT
+            CASE 10: ! INITIALIZATION STATE !
+                ! Description: !
+                !   Initialization state to check everything on the PC's (PLC) side and activation to control !
+                
+                SetDO R_ST_IN_POS_PROFINET_OUT, 1;
+                
+                IF R_PLC_ST_ACTIVE_PROFINET_IN = 1 THEN
+                    ! Wait State. Everything on the PC's (PLC) side is OK
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 20;
+                ENDIF
+                
+            CASE 20: ! WAIT STATE !
+                ! Description: !
+                !   State of waiting for command with index from the PC's (PLC) !
+
+                aux_trajectory_index_var := 0;
+                
+                IF R_PLC_CMD_START_PROFINET_IN = 1 AND R_PLC_CMD_MAIN_ID_PROFINET_IN = 1 THEN
+                    SetDO R_ST_IN_POS_PROFINET_OUT, 0;
+                    ! Move Joint (Absolute)
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 30;
+                ELSEIF R_PLC_CMD_START_PROFINET_IN = 1 AND R_PLC_CMD_MAIN_ID_PROFINET_IN = 2 THEN
+                    SetDO R_ST_IN_POS_PROFINET_OUT, 0;
+                    ! Move Linear
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 40;
+                ENDIF
+                
+                IF R_PLC_ST_ACTIVE_PROFINET_IN = 0 THEN
+                    ! Initialization State {rm_str.PLC_ModuleOK = FALSE -> There is some problem with the PC's (PLC)}
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 10;
+                ENDIF
+                
+            CASE 30: ! MOVE JOINT ABSOLUTE STATE - EXECUTE !
+                ! Description: !
+                !   Control Function (MoveAbsJ): Moves the robot to an absolute joint position !
+
+                IF aux_trajectory_index_var = R_PLC_TRAJ_SIZE_PROFINET_IN THEN
+                    SetDO R_ST_IN_POS_PROFINET_OUT, 1;
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 20;
+                ELSE
+                    SetGO R_MOTION_TRAJ_ID_PROFINET_OUT, aux_trajectory_index_var;
+                    MoveAbsJ R_J_Position{aux_trajectory_index_var + 1}\NoEOffs, R_Speed{aux_trajectory_index_var + 1}, R_Zone{aux_trajectory_index_var + 1}, rob_R_Tool\WObj:=wobj0;
+                    aux_trajectory_index_var := aux_trajectory_index_var + 1;
+                ENDIF
+                
+            CASE 40: ! MOVE CARTESIAN STATE - EXECUTE !
+                ! Description: !
+                !   Control Function (MoveL): Moves the tool center point (TCP) linearly !
+
+                IF aux_trajectory_index_var = R_PLC_TRAJ_SIZE_PROFINET_IN THEN
+                    SetDO R_ST_IN_POS_PROFINET_OUT, 1;
+                    SetGO R_ST_MAIN_ID_PROFINET_OUT, 20;
+                ELSE
+                    SetGO R_MOTION_TRAJ_ID_PROFINET_OUT, aux_trajectory_index_var;
+                    MoveL R_TCP_Position{aux_trajectory_index_var + 1}, R_Speed{aux_trajectory_index_var + 1}, R_Zone{aux_trajectory_index_var + 1}, rob_R_Tool\WObj:=wobj0;
+                    aux_trajectory_index_var := aux_trajectory_index_var + 1;
+                ENDIF
+        ENDTEST
     ENDPROC
     
     PROC ER_Reset_Parameters_MAIN_CTRL()
         ! Description:                                                   !
         !   Event routine function (non-parametric) for parameter reset. !
         !       Note: Configuration / Controller / Event Routine         !
-
+        
+        SetGO R_ST_MAIN_ID_PROFINET_OUT, 10;
+        SetGO R_ST_UPT_ID_PROFINET_OUT, 10;
+        
         ! Main Control Structure
         rm_R_str := [[0],[0,0,0,0],[[0,0],[0,0,0,0,0]],[0,0,0,0,0]];
                    
@@ -132,5 +193,7 @@ MODULE Module1
         !   when the program is stopped.                                 !
         !       Note: Configuration / Controller / Event Routine         !
         
+        SetDO R_ST_IN_POS_PROFINET_OUT, 1;
+        SetGO R_ST_MAIN_ID_PROFINET_OUT, 10;
     ENDPROC
 ENDMODULE

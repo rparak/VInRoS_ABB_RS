@@ -1,8 +1,8 @@
 #
 # Generated backup file, do not edit.
 #
-# Originally at: /hd0a/TEMP/backup.075115
-# 2024-06-26  15:34:08
+# Originally at: /hd0a/TEMP/backup.085041
+# 2024-06-26  18:47:42
 #
 >>SYSTEM_ID:
 14000-502116
@@ -79,6 +79,18 @@ SYSMOD/user.sys @
 PROGMOD/Module1.mod @ 
 
 >>TASK5: (T_PLC_ROB_L_PROFINET,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK6: (T_ROB_R_PLC_PROFINET_Q,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK7: (T_ROB_R_PLC_PROFINET_TCP,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK8: (T_PLC_ROB_R_PROFINET,,)
 SYSMOD/user.sys @ 
 PROGMOD/Module1.mod @ 
 
