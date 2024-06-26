@@ -1,5 +1,9 @@
 # Versatile Intelligent Robotic Workstation (VInRoS): ABB RobotStudio
 
+## Project Description
+
+In progress ...
+
 ## Contact Info
 Roman.Parak@outlook.com
 
