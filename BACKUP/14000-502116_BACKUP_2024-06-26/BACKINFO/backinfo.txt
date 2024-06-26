@@ -1,0 +1,86 @@
+#
+# Generated backup file, do not edit.
+#
+# Originally at: /hd0a/TEMP/backup.075115
+# 2024-06-26  15:34:08
+#
+>>SYSTEM_ID:
+14000-502116
+
+>>PRODUCTS_ID:
+RobotWare Version: 6.14.01.00
+SmartGripper Version: 3.56.0000.00
+
+  Contact L
+  RobICI I/O Driver
+  UDPUC Driver
+  Leadthrough
+  YuMi AbsAcc Recovery
+  637-1 Production Screen
+  English
+  603-1 Absolute Accuracy
+  988-1 RW Add-In Prepared
+  613-1 Collision Detection
+  606-1 Conveyor Tracking
+  1552-1 Tracking Unit Interface
+  709-1 DeviceNet Master/Slave
+  841-1 EtherNet/IP Scanner/Adapter
+  689-1 Externally Guided Motion (EGM)
+  617-1 FlexPendant Interface
+  614-1 FTP SFTP and NFS client
+  1341-1/1520-1 Integrated Vision Interface
+  604-1 MultiMove Coordinated
+  623-1 Multitasking
+  612-1 Path Offset
+  611-1 Path Recovery
+  616-1 PC Interface
+  840-2 PROFIBUS Anybus Device
+  888-3 PROFINET Device
+  688-1 RobotStudio App Connect
+  885-1 SoftMove
+  608-1 World Zones
+  RobotWare Base
+  Hall Sensor Calibration
+  Pendelum Calibration
+  Motor Commutation
+  Service Info System
+  Drive System IRB 14000
+  IRB 14000-0.5/0.5
+  IRB 14000-0.5/0.5 Type A
+  IRB 14000-0.5/0.5 Type A
+  SmartGripper
+
+>>HOME:
+All public files and directories
+
+>>SYSPAR:
+SYS.cfg
+PROC.cfg
+MMC.cfg
+EIO.cfg
+SIO.cfg
+MOC.cfg
+
+
+>>TASK1: (T_ROB_R_MAIN_CTRL,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK2: (T_ROB_L_MAIN_CTRL,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK3: (T_ROB_L_PLC_PROFINET_Q,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK4: (T_ROB_L_PLC_PROFINET_TCP,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+>>TASK5: (T_PLC_ROB_L_PROFINET,,)
+SYSMOD/user.sys @ 
+PROGMOD/Module1.mod @ 
+
+
+>>EOF:
