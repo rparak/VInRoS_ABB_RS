@@ -5,14 +5,14 @@
   <img src=https://github.com/rparak/VInRoS_ABB_RS/blob/main/images/ABB_IRB_14000.png width="275" height="375">
 </p>
 
-## Requirements:
+## Requirements
 
-**Software:**
+**Software**
 ```bash
 ABB RobotStudio
 ```
 
-**Supported on the following operating systems:**
+**Supported on the following operating systems**
 ```bash
 Windows
 ```
