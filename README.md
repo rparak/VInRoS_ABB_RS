@@ -9,7 +9,7 @@
 
 **Software**
 ```bash
-ABB RobotStudio
+ABB RobotStudio 2023.2.1
 ```
 
 **Supported on the following operating systems**
